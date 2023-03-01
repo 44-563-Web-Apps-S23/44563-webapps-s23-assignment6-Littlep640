@@ -39,5 +39,35 @@
 
 <p id="result">This text will be replaced </p>
 
+
+<script>
+    var useImage = 1
+    function selectImage() {
+        switch(useImage){
+            case 1:
+                useImage = 2
+                document.getElementById("changeImage").src = "eryngo.webp";
+                break;
+            case 2:
+                useImage = 3
+                document.getElementById("changeImage").src = "taxus.webp";
+                break;
+            case 3: 
+                useImage = 1
+                document.getElementById("chaneImage").src = "peony.jpg";  
+                break;
+            default:
+                useImage = 1                          
+        }
+    }
+</script>
+
+
+<div>
+    <img src="peony.jpg" height="100" width="100" id="changeImage" onclick="selectImage()"> 
+</div>
+
+
+
 </body>
 </html> 
