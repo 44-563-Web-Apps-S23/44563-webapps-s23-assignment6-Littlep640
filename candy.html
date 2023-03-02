@@ -21,14 +21,22 @@
     <button type="button" onclick="selectBox()">Select a box</button>
 </form>
 
+<form>
+    <label for="size">Enter the size</label>
+    <input type="text" id="size" value="size">
+
+    <label for="price">Enter price</label>
+    <input type="text" id="price">
+
+    <button type="button" onclick="updateBox()">Update the box</button>
+</form>
 
 <p id="resultCheck">This text will be replaced </p>
 
 <script> 
-    
+    var my_candy_box = {} 
 
-    function selectBox() {
-        var my_candy_box = {}  
+    function selectBox() {             
         if(document.getElementById("dchoc").checked){
             my_candy_box["DarkChocolate"]= true
         }
@@ -47,7 +55,17 @@
         else{
             my_candy_box["Chewy"] = false
         }
-        document.getElementById("resultCheck").innerText = "Dark Chocolate is: " + my_candy_box.DarkChocolate + ". " + "Nuts is: " + my_candy_box.Nuts + ". " +"Chewy is: " + my_candy_box.Chewy + ". "
+        document.getElementById("resultCheck").innerHTML = "Dark Chocolate is: " + my_candy_box.DarkChocolate + ". " + "Nuts is: " + my_candy_box.Nuts + ". " +"Chewy is: " + my_candy_box.Chewy + ". "
+    }
+
+    function updateBox() {
+        sizeGiven = document.getElementById("size").value
+        priceGiven = document.getElementById("price").value
+
+        my_candy_box["Size"] = sizeGiven
+        my_candy_box["Price"] = priceGiven
+
+        document.getElementById("resultCheck").innerHTML = "The size is: " + my_candy_box.Size + ". Price is: " + my_candy_box.Price
     }
 
 </script>
