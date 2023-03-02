@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Peyton chooses candy</title>
+</head>
  
 <body>
 
@@ -22,29 +25,29 @@
 <p id="resultCheck">This text will be replaced </p>
 
 <script> 
-    var my_candy_box = {}
+    
 
     function selectBox() {
-        my_candy_box = " "
+        var my_candy_box = {}  
         if(document.getElementById("dchoc").checked){
-            my_candy_box += "Dark Chocolate: true" + "<br>"
+            my_candy_box["DarkChocolate"]= true
         }
         else{
-            my_candy_box +=  "Dark Chocolate: false" + "<br>"
+            my_candy_box["DarkChocolate"] = false;
         }        
         if(document.getElementById("nutz").checked){
-            my_candy_box += "Nutz: true" + "<br>"
+            my_candy_box["Nuts"] = true
         }
         else{
-            my_candy_box += "Nutz: false" + "<br>"
+            my_candy_box["Nuts"] = false
         }
         if(document.getElementById("chewy").checked){
-            my_candy_box += "Chewy: true" + "<br>"
+            my_candy_box["Chewy"] = true
         }
         else{
-            my_candy_box += "Chewy: false" + "<br>"
+            my_candy_box["Chewy"] = false
         }
-        document.getElementById("resultCheck").innerHTML = my_candy_box
+        document.getElementById("resultCheck").innerText = "Dark Chocolate is: " + my_candy_box.DarkChocolate + ". " + "Nuts is: " + my_candy_box.Nuts + ". " +"Chewy is: " + my_candy_box.Chewy + ". "
     }
 
 </script>
