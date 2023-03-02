@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+
+<h2>Getting input</h2>
+
+<form>
+    <label for="dchoc">Dark Chocolate </label>
+    <input type ="checkbox" id="dchoc" name="dchoc" value="True"> <br>
+
+    <label for="nutz">Nuts</label>
+    <input type ="checkbox" id="nutz" name="nutz" value="True"> <br>
+
+    <label for="chewy"> Chewy</label>
+    <input type="checkbox" id="chewy" name="chewy" value="False">
+
+    <button type="button" onclick="selectBox()">Select a box</button>
+</form>
+
+
+<p id="resultCheck">This text will be replaced </p>
+
+<script> 
+    var my_candy_box = {}
+
+    function selectBox() {
+        my_candy_box = " "
+        if(document.getElementById("dchoc").checked){
+            my_candy_box += "Dark Chocolate: true" + "<br>"
+        }
+        else{
+            my_candy_box +=  "Dark Chocolate: false" + "<br>"
+        }        
+        if(document.getElementById("nutz").checked){
+            my_candy_box += "Nutz: true" + "<br>"
+        }
+        else{
+            my_candy_box += "Nutz: false" + "<br>"
+        }
+        if(document.getElementById("chewy").checked){
+            my_candy_box += "Chewy: true" + "<br>"
+        }
+        else{
+            my_candy_box += "Chewy: false" + "<br>"
+        }
+        document.getElementById("resultCheck").innerHTML = my_candy_box
+    }
+
+</script>
+
+</body>
+</html> 
