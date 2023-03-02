@@ -41,5 +41,64 @@
 
 <p id="resultConv">This text will be replaced </p>
 
+<form>
+    <input type="radio" id="average" value="mean" name="numbers" onclick="chooseOp()">
+    <label for="average">Average</label>
+
+    <input type="radio" id="max" value="maximum" name="numbers" onclick="chooseOp()">
+    <label for="max">Max</label>
+
+    <input type="radio" id="min" value="minimum" name="numbers" onclick="chooseOp()">
+    <label for="min">Min</label>    
+</form>
+
+<p id="radioResult">This text will be replaced!</p>
+
+<script>
+    var counter = 0
+    var averageBase = 0
+    var averageConv = 0
+
+    var maximumBase = 0
+    var maximumConv = 0
+
+    var minimumBase = 1000000
+    var minimumConv = 1000000
+
+    function chooseOp() {
+        inputAmount = document.getElementById("baseAmt").value
+        inputConv = document.getElementById("converRt").value
+        radioReader = " "
+        counter += 1
+        if(document.getElementById("average").checked){            
+            averageBase += inputAmount
+            averageConv += inputConv
+            
+            averageBase = averageBase / counter
+            averageConv = averageConv / counter
+            radioReader += "The average base is: " + averageBase + "<br>" + "The average conversion is: " + averageConv + "<br>"        
+        }
+        if(document.getElementById("max").checked){
+            if(maximumBase < inputAmount){
+                maximumBase = inputAmount
+            }
+            if(maximumConv < inputConv){
+                maximumConv = inputConv
+            }
+            radioReader+= " The max base is: " + maximumBase + "<br>" + " The max conversion is: " + maximumConv + "<br>"
+        }
+        if(document.getElementById("min").checked){
+            if(minimumBase > inputAmount){
+                minimumBase = inputAmount
+            }
+            if(minimumConv > inputConv){
+                minimumConv = inputConv
+            }
+            radioReader += "The min base is: " + minimumBase + "<br>" + " The min conversion is: " + minimumConv + "<br>"            
+        }
+        document.getElementById("radioResult").innerHTML = radioReader
+    }
+</script>
+
 </body>
 </html> 
